@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class CommonActions_Application extends Helper{
@@ -33,8 +34,7 @@ public class CommonActions_Application extends Helper{
         driver.findElement(By.xpath("//a[@class='btn btn-lg btn-primary k-button k-button-icontext k-grid-add']")).click();
     }
 
-    public static void Create_New_Division()
-    {
+    public static void Create_New_Division() throws IOException {
         Actions Act = new Actions(driver);
         driver.findElement(By.xpath("//input[@id='DivisionName']")).sendKeys("DIV1");
         Act.sendKeys(Keys.TAB).perform();
@@ -45,13 +45,15 @@ public class CommonActions_Application extends Helper{
             WebElement SaveMsg=driver.findElement(By.xpath("//*[@id='saveAlertMessage']/p"));
             Assert.assertTrue(SaveMsg.isDisplayed());
             System.out.println("Division Created Successfully");
+            Helper.Take_ScreenShot_Success();
             Helper.CB();
         }
         catch (Throwable t){
             WebElement DelMsg = driver.findElement(By.xpath("//*[@class='deleteAlertErrorMessage']"));
             Assert.assertTrue(DelMsg.isDisplayed());
-            Helper.CB();
            System.out.println("DIV1 cannot be Inserted/Updated since it already exists.");
+           Helper.Take_ScreenShot_Failure();
+           Helper.CB();
         }
 
 

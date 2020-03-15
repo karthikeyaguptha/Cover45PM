@@ -3,6 +3,7 @@ package com.stepDefs;
 import io.cucumber.java.en.*;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class Division_StepDefns extends CommonActions_Application {
 
@@ -27,7 +28,7 @@ public class Division_StepDefns extends CommonActions_Application {
     }
 
     @Then("Entering required details and Click on Save Changes Button")
-    public void entering_required_details_and_Click_on_Save_Changes_Button() {
+    public void entering_required_details_and_Click_on_Save_Changes_Button() throws IOException {
         CommonActions_Application.Click_Add_Button();
         CommonActions_Application.Create_New_Division();
 //        CommonActions_Application.Wait_Page_For_Load();
