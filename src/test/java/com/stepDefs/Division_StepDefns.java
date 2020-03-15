@@ -22,8 +22,8 @@ public class Division_StepDefns extends CommonActions_Application {
 
     @Then("Navigating to Divisions URL of C45PM")
     public void navigating_to_Divisions_URL_of_C45PM() {
-       CommonActions_Application.LOAD_DIVISIONS_URL();
-       CommonActions_Application.Wait_Page_For_Load();
+        CommonActions_Application.LOAD_DIVISIONS_URL();
+        CommonActions_Application.Wait_Page_For_Load();
 
     }
 
@@ -31,10 +31,16 @@ public class Division_StepDefns extends CommonActions_Application {
     public void entering_required_details_and_Click_on_Save_Changes_Button() throws IOException {
         CommonActions_Application.Click_Add_Button();
         CommonActions_Application.Create_New_Division();
-//        CommonActions_Application.Wait_Page_For_Load();
 
     }
 
 
+    @And("Click on Delete Icon and Click on Ok Button")
+    public void clickOnTheExistingRecordAndEditAllTheReqDetAndClickOnSaveChanges() throws IOException {
+        CommonActions_Application.Delete_Division();
 
+
+    }
 }
+
+

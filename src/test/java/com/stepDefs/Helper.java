@@ -17,13 +17,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Helper {
 
-   public static WebDriver driver;
+    public static WebDriver driver;
 
 
     //    @Test(priority = 1)
-    public static void OB()
-    {
-        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+    public static void OB() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://cover4pm.itcinfotech.com/Cover4PM6/");
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
@@ -31,25 +30,37 @@ public class Helper {
 
     }
 
-//    @Test(priority = 2)
-    public static void CB()
-    {
+    //    @Test(priority = 2)
+    public static void CB() {
         driver.close();
     }
 
     public static void Take_ScreenShot_Success() throws IOException {
-        TakesScreenshot TS=(TakesScreenshot)driver;
-        File Src=TS.getScreenshotAs(OutputType.FILE);
+        TakesScreenshot TS = (TakesScreenshot) driver;
+        File Src = TS.getScreenshotAs(OutputType.FILE);
         File TRG = new File("C:/Users/Karthik Guptha/IdeaProjects/Cover45PM/target/Division_ScreenShots/Created_Division.png");
-        FileHandler.copy(Src,TRG);
+        FileHandler.copy(Src, TRG);
     }
 
     public static void Take_ScreenShot_Failure() throws IOException {
-        TakesScreenshot TS=(TakesScreenshot)driver;
-        File Src=TS.getScreenshotAs(OutputType.FILE);
+        TakesScreenshot TS = (TakesScreenshot) driver;
+        File Src = TS.getScreenshotAs(OutputType.FILE);
         File TRG = new File("C:/Users/Karthik Guptha/IdeaProjects/Cover45PM/target/Division_ScreenShots/Not_Created_Division.png");
-        FileHandler.copy(Src,TRG);
+        FileHandler.copy(Src, TRG);
     }
 
+    public static void Take_ScreenShot_Delete_Success() throws IOException {
+        TakesScreenshot TS = (TakesScreenshot) driver;
+        File Src = TS.getScreenshotAs(OutputType.FILE);
+        File TRG = new File("C:/Users/Karthik Guptha/IdeaProjects/Cover45PM/target/Division_ScreenShots/Deleted_Division.png");
+        FileHandler.copy(Src, TRG);
+    }
+
+    public static void Take_ScreenShot_Delete_Failure() throws IOException {
+        TakesScreenshot TS = (TakesScreenshot) driver;
+        File Src = TS.getScreenshotAs(OutputType.FILE);
+        File TRG = new File("C:/Users/Karthik Guptha/IdeaProjects/Cover45PM/target/Division_ScreenShots/Not_Deleted_Division.png");
+        FileHandler.copy(Src, TRG);
+    }
 
 }
