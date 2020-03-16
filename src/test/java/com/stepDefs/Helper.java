@@ -63,4 +63,18 @@ public class Helper {
         FileHandler.copy(Src, TRG);
     }
 
+    public static void Take_ScreenShot_Edit_Success() throws IOException {
+        TakesScreenshot TS = (TakesScreenshot) driver;
+        File Src = TS.getScreenshotAs(OutputType.FILE);
+        File TRG = new File("C:/Users/Karthik Guptha/IdeaProjects/Cover45PM/target/Division_ScreenShots/Edited_Division.png");
+        FileHandler.copy(Src, TRG);
+    }
+
+    public static void Take_ScreenShot_Edit_Failure() throws IOException {
+        TakesScreenshot TS = (TakesScreenshot) driver;
+        File Src = TS.getScreenshotAs(OutputType.FILE);
+        File TRG = new File("C:/Users/Karthik Guptha/IdeaProjects/Cover45PM/target/Division_ScreenShots/Not_Edited_Division.png");
+        FileHandler.copy(Src, TRG);
+    }
+
 }

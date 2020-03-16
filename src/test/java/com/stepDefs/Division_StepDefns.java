@@ -1,6 +1,7 @@
 package com.stepDefs;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -39,6 +40,18 @@ public class Division_StepDefns extends CommonActions_Application {
     public void clickOnTheExistingRecordAndEditAllTheReqDetAndClickOnSaveChanges() throws IOException {
         CommonActions_Application.Delete_Division();
 
+
+    }
+
+    @And("Edit on the record and click on Save Changes Button")
+    public void editOnTheRecordAndClickOnSaveChangesButton() throws IOException {
+        CommonActions_Application.Edit_Division();
+
+    }
+
+    @Then("Click on Logout Button")
+    public void clickOnLogoutButton() {
+        CommonActions_Application.Logout();
 
     }
 }
