@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
                 features = "src/test/java/com/features/Division.feature",
                 glue = "com.Division_StepDefns",
                 monochrome = true,
-                tags="@AddDivision",
+                tags = "@AddDivision",
                 strict = true
 //                plugin =
 //                        {
