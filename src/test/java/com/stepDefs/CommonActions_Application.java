@@ -98,5 +98,12 @@ public class CommonActions_Application extends Helper {
             Helper.CB();
         }
     }
+
+    public static void LOAD_LOCATIONS_URL()
+    {
+        driver.get("https://cover4pm.itcinfotech.com/Cover4PM6/Masters/CommonMaster/Location");
+        driver.findElement(By.xpath("//*[@id='LocationGrid']/div[1]/a")).click();
+//        driver.findElement(By.xpath("https://cover4pm.itcinfotech.com/Cover4PM6/Masters/CommonMaster/AddLocation")).click();
+    }
 }
 
