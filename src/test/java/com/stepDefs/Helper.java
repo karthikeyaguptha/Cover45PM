@@ -1,18 +1,17 @@
 package com.stepDefs;
 
-import jdk.dynalink.beans.StaticClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import com.linksandpaths.*;
 import org.openqa.selenium.io.FileHandler;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 
 import java.io.File;
 import java.io.IOException;
-import java.util.PriorityQueue;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class Helper {
@@ -21,8 +20,9 @@ public class Helper {
 
 
     //    @Test(priority = 1)
+    @BeforeMethod
     public static void OB() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver_L.exe");
         driver = new ChromeDriver();
         driver.get("https://cover4pm.itcinfotech.com/Cover4PM6/");
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
@@ -31,6 +31,7 @@ public class Helper {
     }
 
     //    @Test(priority = 2)
+    @AfterMethod
     public static void CB() {
         driver.close();
     }
@@ -76,5 +77,18 @@ public class Helper {
         File TRG = new File("C:/Users/Karthik Guptha/IdeaProjects/Cover45PM/target/Division_ScreenShots/Not_Edited_Division.png");
         FileHandler.copy(Src, TRG);
     }
+
+    public static void SCRNSHT(String SCRNSHTNAME) throws IOException {
+        TakesScreenshot TS = (TakesScreenshot) driver;
+        File Src = TS.getScreenshotAs(OutputType.FILE);
+        File TRG = new File("C:/Users/Karthik Guptha/IdeaProjects/Cover45PM/target/ScreenShots/"+SCRNSHTNAME+SCRNSHTDATEANDTIMESTAMP()+".png");
+        FileHandler.copy(Src, TRG);
+    }
+
+    public static String SCRNSHTDATEANDTIMESTAMP()
+    {
+        return new SimpleDateFormat("_dd-MM-yyyy_HH_mm_ss").format(new Date());
+    }
+
 
 }
