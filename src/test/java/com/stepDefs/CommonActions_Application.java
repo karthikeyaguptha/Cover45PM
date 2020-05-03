@@ -12,10 +12,10 @@ import java.util.concurrent.TimeUnit;
 public class CommonActions_Application extends Helper {
 
     public static void Login() {
-//        driver.findElement(By.xpath("//input[@id='LoginId']")).sendKeys("User 3");
-//        driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("User3@123");
-//        driver.findElement(By.xpath("//input[@id='LoginId']"));
-//        driver.findElement(By.xpath("//input[@id='Password']"));
+        driver.findElement(By.xpath("//input[@id='LoginId']")).sendKeys("User 3");
+        driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("User3@123");
+        driver.findElement(By.xpath("//input[@id='LoginId']"));
+        driver.findElement(By.xpath("//input[@id='Password']"));
         driver.findElement(By.xpath("//button[@class='k-button k-primary']")).click();
     }
 
@@ -48,14 +48,16 @@ public class CommonActions_Application extends Helper {
             WebElement SaveMsg = driver.findElement(By.xpath("//*[@id='saveAlertMessage']/p"));
 //            Assert.assertTrue(SaveMsg.isDisplayed());
             System.out.println("Division Created Successfully");
-            Helper.Take_ScreenShot_Success();
+//            Helper.Take_ScreenShot_Success();
+            Helper.SCRNSHT("Created_Division");
 //            Helper.CB();
         } catch (Throwable t) {
             WebElement DelMsg = driver.findElement(By.xpath("//*[@class='deleteAlertErrorMessage']"));
 //            Assert.assertTrue(DelMsg.isDisplayed());
             t.printStackTrace();
             System.out.println("DIV1 cannot be Inserted/Updated since it already exists.");
-            Helper.Take_ScreenShot_Failure();
+//            Helper.Take_ScreenShot_Failure();
+            Helper.SCRNSHT("Not_Created_Division");
             Helper.CB();
         }
 
@@ -68,11 +70,13 @@ public class CommonActions_Application extends Helper {
         try {
             driver.findElement(By.xpath("//p[@class='saveAlertSuccessMessage']")).isDisplayed();
             System.out.println("Division Deleted Successfully");
-            Helper.Take_ScreenShot_Delete_Success();
+//            Helper.Take_ScreenShot_Delete_Success();
+            Helper.SCRNSHT("Deleted_Division");
 //            Helper.CB();
         } catch (Throwable t) {
             System.out.println("Division not deleted Successfully");
-            Helper.Take_ScreenShot_Delete_Failure();
+//            Helper.Take_ScreenShot_Delete_Failure();
+            Helper.SCRNSHT("Not_Deleted_Division");
             Helper.CB();
         }
     }
@@ -88,13 +92,15 @@ public class CommonActions_Application extends Helper {
         {
             driver.findElement(By.xpath("//p[@class='saveAlertSuccessMessage']")).isDisplayed();
             System.out.println("Division Edited Successfully");
-            Helper.Take_ScreenShot_Edit_Success();
+//            Helper.Take_ScreenShot_Edit_Success();
+            Helper.SCRNSHT("Edited_Division");
 //            Helper.CB();
         }
         catch (Throwable t)
         {
             System.out.println("Division is not edited successfully");
-            Helper.Take_ScreenShot_Edit_Failure();
+//            Helper.Take_ScreenShot_Edit_Failure();
+            Helper.SCRNSHT("Not_Edited_Division");
             Helper.CB();
         }
     }
